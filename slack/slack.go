@@ -10,6 +10,11 @@ import (
 	"github.com/slack-go/slack"
 )
 
+const (
+	jiraDomain  = "jira.com"
+	jiraWebhook = "https://hooks.slack.com/services/XXXX/XXXXX/XXXX"
+)
+
 type issueJira struct {
 	ID        int    `json:"id"`
 	Timestamp string `json:"timestamp"`
@@ -90,7 +95,7 @@ func SendMessageToChannel(w http.ResponseWriter, r *http.Request) {
 		Color:      "good",
 		Fallback:   "You successfully posted by Incoming Webhook URL!",
 		AuthorName: issue.Issue.Key + " - " + issue.Issue.Fields.Summary,
-		AuthorLink: "https://changeTOyourJiraDomain/browse/" + issue.Issue.Key,
+		AuthorLink: "https://" + jiraDomain + "/browse/" + issue.Issue.Key,
 		Text:       issue.User.DisplayName,
 		Ts:         json.Number(strconv.FormatInt(time.Now().Unix(), 10)),
 	}
@@ -99,7 +104,7 @@ func SendMessageToChannel(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Webhook for channel #infra-test
-	err := slack.PostWebhook("xxxCHANGEitxxx", &msg)
+	err := slack.PostWebhook(jiraWebhook, &msg)
 	if err != nil {
 		fmt.Println(err)
 	}
