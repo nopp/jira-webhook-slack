@@ -11,8 +11,8 @@ import (
 )
 
 const (
-	jiraDomain  = "jira.com"
-	jiraWebhook = "https://hooks.slack.com/services/XXXX/XXXXX/XXXX"
+	jiraDomain   = "jira.com"
+	slackWebhook = "https://hooks.slack.com/services/XXXX/XXXXX/XXXX"
 )
 
 type issueJira struct {
@@ -103,8 +103,7 @@ func SendMessageToChannel(w http.ResponseWriter, r *http.Request) {
 		Attachments: []slack.Attachment{attachment},
 	}
 
-	// Webhook for channel #infra-test
-	err := slack.PostWebhook(jiraWebhook, &msg)
+	err := slack.PostWebhook(slackWebhook, &msg)
 	if err != nil {
 		fmt.Println(err)
 	}
