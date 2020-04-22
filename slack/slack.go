@@ -90,7 +90,7 @@ func SendMessageToChannel(w http.ResponseWriter, r *http.Request) {
 		Color:      "good",
 		Fallback:   "You successfully posted by Incoming Webhook URL!",
 		AuthorName: issue.Issue.Key + " - " + issue.Issue.Fields.Summary,
-		AuthorLink: "https://jira.preventsenior.io/browse/" + issue.Issue.Key,
+		AuthorLink: "https://changeTOyourJiraDomain/browse/" + issue.Issue.Key,
 		Text:       issue.User.DisplayName,
 		Ts:         json.Number(strconv.FormatInt(time.Now().Unix(), 10)),
 	}
