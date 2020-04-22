@@ -1,4 +1,4 @@
-# Simple webhook - Jira send to Slack
+# Simple webhook - Jira -> Slack
 
 # Configure at slack/slack.go
 	jiraDomain  = "jira.com"
