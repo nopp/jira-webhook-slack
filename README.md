@@ -13,3 +13,7 @@
 
 # Jira webhook configuration
 http://ipOfWebhookRunning:9229/alert
+
+# Channel example of alert
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/ZSJdKcB/chan-Alert.png" alt="chan-Alert" border="0"></a>
