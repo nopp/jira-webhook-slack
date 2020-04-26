@@ -1,4 +1,4 @@
-Simple webhook - Jira -> Slack
+Simple webhook - Jira to Slack
 ==============================
 
 <img src="https://github.com/nopp/jira-webhook-slack/workflows/Go/badge.svg"/>
