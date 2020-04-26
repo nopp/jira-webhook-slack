@@ -1,7 +1,7 @@
 Simple webhook - Jira -> Slack
 ==============================
 
-<img src="https://github.com/nopp/jira-webhook-slack/workflows/go/badge.svg"/>
+<img src="https://github.com/nopp/jira-webhook-slack/workflows/Go/badge.svg"/>
 
 Configure at config.json
 ========================
