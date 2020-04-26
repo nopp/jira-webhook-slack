@@ -1,12 +1,13 @@
 Simple webhook - Jira -> Slack
 ==============================
 
-Configure at conf/conf.go
-=========================
-    JiraDomain  = "jira.com"
-    SlackWebhook = "https://hooks.slack.com/services/XXXX/XXXXX/XXXX"
-    IPPort = "0.0.0.0:9229"
-
+Configure at config.json
+========================
+    {
+        "jiradomain":"xxjiradomainxx",
+        "slackwebhook":"xxslackwebhookxx",
+        "ipport":"xxiportxx"
+    }
 Install
 =======
     git clone git@github.com:nopp/jira-webhook-slack.git
