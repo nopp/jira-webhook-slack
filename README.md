@@ -1,7 +1,7 @@
 Simple webhook - Jira -> Slack
 ==============================
 
-[![Actions Status](https://nopp.execute-api.us-west-2.amazonaws.com/production/badge/nopp/jira-webhook-slack)](https://nopp.execute-api.us-west-2.amazonaws.com/production/results/nopp/jira-webhook-slack)
+[![Actions Status](https://xxx.execute-api.us-west-2.amazonaws.com/production/badge/nopp/jira-webhook-slack)](https://xxx.execute-api.us-west-2.amazonaws.com/production/results/nopp/jira-webhook-slack)
 
 Configure at config.json
 ========================
