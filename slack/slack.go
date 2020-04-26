@@ -38,46 +38,6 @@ type issueJira struct {
 		DisplayName string `json:"displayName"`
 		Active      string `json:"active"`
 	} `json:"user"`
-	Changelog struct {
-		Items []struct {
-			To         interface{} `json:"to"`
-			FromString string      `json:"fromString"`
-			From       interface{} `json:"from"`
-			Fieldtype  string      `json:"fieldtype"`
-			Field      string      `json:"field"`
-		} `json:"items"`
-		ID int `json:"id"`
-	} `json:"changelog"`
-	Comment struct {
-		Self   string `json:"self"`
-		ID     string `json:"id"`
-		Author struct {
-			Self         string `json:"self"`
-			AccountID    string `json:"accountId"`
-			EmailAddress string `json:"emailAddress"`
-			AvatarUrls   struct {
-				One6X16  string `json:"16x16"`
-				Four8X48 string `json:"48x48"`
-			} `json:"avatarUrls"`
-			DisplayName string `json:"displayName"`
-			Active      bool   `json:"active"`
-		} `json:"author"`
-		Body         string `json:"body"`
-		UpdateAuthor struct {
-			Self         string `json:"self"`
-			AccoundID    string `json:"accoundId"`
-			EmailAddress string `json:"emailAddress"`
-			AvatarUrls   struct {
-				One6X16  string `json:"16x16"`
-				Four8X48 string `json:"48x48"`
-			} `json:"avatarUrls"`
-			DisplayName string `json:"displayName"`
-			Active      bool   `json:"active"`
-		} `json:"updateAuthor"`
-		Created string `json:"created"`
-		Updated string `json:"updated"`
-	} `json:"comment"`
-	WebhookEvent string `json:"webhookEvent"`
 }
 
 // SendMessageToChannel Responsible for send msgs to channel
