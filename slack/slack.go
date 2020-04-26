@@ -83,6 +83,7 @@ type issueJira struct {
 // SendMessageToChannel Responsible for send msgs to channel
 func SendMessageToChannel(w http.ResponseWriter, r *http.Request) {
 
+	confInfo := conf.LoadConfiguration()
 	var issue issueJira
 
 	_ = json.NewDecoder(r.Body).Decode(&issue)
@@ -91,7 +92,7 @@ func SendMessageToChannel(w http.ResponseWriter, r *http.Request) {
 		Color:      "good",
 		Fallback:   "You successfully posted by Incoming Webhook URL!",
 		AuthorName: issue.Issue.Key + " - " + issue.Issue.Fields.Summary,
-		AuthorLink: "https://" + conf.JiraDomain + "/browse/" + issue.Issue.Key,
+		AuthorLink: "https://" + confInfo.JiraDomain + "/browse/" + issue.Issue.Key,
 		Text:       issue.User.DisplayName,
 		Ts:         json.Number(strconv.FormatInt(time.Now().Unix(), 10)),
 	}
@@ -99,7 +100,7 @@ func SendMessageToChannel(w http.ResponseWriter, r *http.Request) {
 		Attachments: []slack.Attachment{attachment},
 	}
 
-	err := slack.PostWebhook(conf.SlackWebhook, &msg)
+	err := slack.PostWebhook(confInfo.SlackWebhook, &msg)
 	if err != nil {
 		fmt.Println(err)
 	}

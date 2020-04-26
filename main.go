@@ -11,8 +11,9 @@ import (
 
 func main() {
 
+	confInfo := conf.LoadConfiguration()
 	router := mux.NewRouter()
 	router.HandleFunc("/alert", slack.SendMessageToChannel).Methods("POST")
 
-	log.Fatal(http.ListenAndServe(conf.IPPort, router))
+	log.Fatal(http.ListenAndServe(confInfo.IPPort, router))
 }

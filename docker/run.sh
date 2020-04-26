@@ -15,8 +15,8 @@ if [ "x" == "x$ipport" ]; then
   exit 1
 fi
 
-sed -i s/xxjiradomainxx/"$jiradomain"/ conf/conf.go
-sed -i s/xxslackwebhookxx/"$slackwebhook"/ conf/conf.go
-sed -i s/xxiportxx/"$ipport"/ conf/conf.go
+sed -i s/xxjiradomainxx/"$jiradomain"/ config.json
+sed -i s/xxslackwebhookxx/"$slackwebhook"/ config.json
+sed -i s/xxiportxx/"$ipport"/ config.json
 
 ./jira-webhook-slack
