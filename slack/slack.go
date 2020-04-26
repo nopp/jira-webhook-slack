@@ -3,16 +3,12 @@ package slack
 import (
 	"encoding/json"
 	"fmt"
+	"jira-webhook-slack/conf"
 	"net/http"
 	"strconv"
 	"time"
 
 	"github.com/slack-go/slack"
-)
-
-const (
-	jiraDomain   = "jira.com"
-	slackWebhook = "https://hooks.slack.com/services/XXXX/XXXXX/XXXX"
 )
 
 type issueJira struct {
@@ -95,7 +91,7 @@ func SendMessageToChannel(w http.ResponseWriter, r *http.Request) {
 		Color:      "good",
 		Fallback:   "You successfully posted by Incoming Webhook URL!",
 		AuthorName: issue.Issue.Key + " - " + issue.Issue.Fields.Summary,
-		AuthorLink: "https://" + jiraDomain + "/browse/" + issue.Issue.Key,
+		AuthorLink: "https://" + conf.JiraDomain + "/browse/" + issue.Issue.Key,
 		Text:       issue.User.DisplayName,
 		Ts:         json.Number(strconv.FormatInt(time.Now().Unix(), 10)),
 	}
@@ -103,7 +99,7 @@ func SendMessageToChannel(w http.ResponseWriter, r *http.Request) {
 		Attachments: []slack.Attachment{attachment},
 	}
 
-	err := slack.PostWebhook(slackWebhook, &msg)
+	err := slack.PostWebhook(conf.SlackWebhook, &msg)
 	if err != nil {
 		fmt.Println(err)
 	}
