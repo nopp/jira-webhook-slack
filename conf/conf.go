@@ -2,9 +2,10 @@ package conf
 
 const (
 	// JiraDomain Url of your jira server
-	JiraDomain = "jira.com"
+	JiraDomain = "xxjiradomainxx"
 	// SlackWebhook webhook create at slack
-	SlackWebhook = "https://hooks.slack.com/services/XXXX/XXXXX/XXXX"
+	// https://hooks.slack.com/services/XXXX/XXXXX/XXXX
+	SlackWebhook = "xxslackwebhookxx"
 	//IPPort ip and port for this webhook
-	IPPort = "0.0.0.0:9229"
+	IPPort = "xxiportxx"
 )
