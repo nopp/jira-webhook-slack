@@ -1,16 +1,11 @@
-FROM golang:1.13.9 AS builder
-ENV jws_version 1.0.2
-RUN curl -LO https://github.com/nopp/jira-webhook-slack/archive/${jws_version}.tar.gz \
-    && tar zxf ${jws_version}.tar.gz
-WORKDIR jira-webhook-slack-${jws_version}
-RUN go get -d . \
+FROM golang:1.13.10 AS builder
+COPY . .
+RUN unset GOPATH \
     && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
-FROM golang:1.13.9
+FROM golang:1.13.10
 
 LABEL maintainer="Carlos Augusto Malucelli <camalucelli@gmail.com>"
 
-ENV jws_version 1.0.2
-
-COPY --from=builder /go/jira-webhook-slack-${jws_version}/main .
+COPY --from=builder /go/main .
 ENTRYPOINT ["./run.sh"]
